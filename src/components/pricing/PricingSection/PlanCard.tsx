@@ -1,14 +1,14 @@
 import React, { VFC } from 'react';
-import { Button } from '../../ui';
-import { Plans } from './PricingSection';
+import { Plan } from '@/types';
+import { Button } from '@/components/ui';
 
 interface Props {
   buttonLabel: string;
   title: string;
   description: string;
   price: string | number;
-  onClick?: (plan: Plans) => void;
-  plan: Plans;
+  onClick?: (plan: Plan) => void;
+  plan: Plan;
 }
 
 const PlanCard: VFC<Props> = ({

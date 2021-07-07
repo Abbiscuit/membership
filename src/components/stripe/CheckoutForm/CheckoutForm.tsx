@@ -3,10 +3,10 @@ import React, { FormEvent, VFC } from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { useRouter } from 'next/router';
 
-import { Plans } from '@/components/pricing/PricingSection/PricingSection';
 import { Button } from '@/components/ui';
+import { Plan } from '@/types';
 
-const CheckoutForm: VFC<{ plan: Plans }> = ({ plan }) => {
+const CheckoutForm: VFC<{ plan: Plan }> = ({ plan }) => {
   const stripe = useStripe();
   const elements = useElements();
   const router = useRouter();
