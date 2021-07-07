@@ -5,16 +5,16 @@ import { useRouter } from 'next/router';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 
-import { plans } from '@/components/pricing/PricingSection/PricingSection';
 import { Section } from '@/components/ui';
 import { BigTitle } from '@/components/common';
 import { CheckoutForm } from '@/components/stripe';
+import { usePricing } from '@/lib/context/PricingProvider';
 
 const AccountPage: NextPage = props => {
   const stripeApiKey = `${process.env.NEXT_PUBLIC_STRIPE_PUBLIC}`;
   const stripePromise = loadStripe(stripeApiKey);
   const router = useRouter();
-
+  const { plans } = usePricing();
   const { planId } = router.query;
 
   const selectedPlan = plans.filter(plan => plan.id === +planId);
